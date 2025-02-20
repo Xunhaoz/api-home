@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  fastapi:
+    container_name: fastapi_home
+    build:
+      dockerfile: docker/api.Dockerfile
+    ports:
+      - "9025:9025"
+    volumes:
+      - ./api:/app
+    restart: always
