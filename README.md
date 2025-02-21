@@ -33,7 +33,7 @@ reliable and structured financial data.
 
 ### Take a glance for the API documentation
 
-API documentation is available at https://finance.xunhaoz.com/apidocs/
+API documentation is available at https://finance.xunhaoz.com/docs/
 
 ## Contribution
 
