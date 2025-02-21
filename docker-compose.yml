@@ -10,3 +10,9 @@ services:
     volumes:
       - ./api:/app
     restart: always
+    networks:
+      - nginx
+
+networks:
+  	nginx:
+    external: true
