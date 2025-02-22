@@ -26,6 +26,7 @@ reliable and structured financial data.
    ```
 3. Start the server:
    ```bash
+   cd api
    uvicorn main:app --host 0.0.0.0 --port 9025 --reload
    ```
 
