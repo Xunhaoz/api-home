@@ -12,7 +12,23 @@ services:
     restart: always
     networks:
       - nginx
+      - selenium_grid
+
+  selenium:
+    container_name: selenium
+    shm_size: 2g
+    image: selenium/standalone-chrome:latest
+    environment:
+      - SE_NODE_MAX_SESSIONS=20
+    ports:
+      - "4444:4444"
+      - "5900:5900"
+      - "7900:7900"
+    networks:
+      - selenium_grid
 
 networks:
   nginx:
     external: true
+  selenium_grid:
+    driver: bridge
