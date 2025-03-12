@@ -35,7 +35,6 @@ def get_etf_trading_reference_rates():
             etf_trading_reference_rates_per_page['message'] = "success"
             return etf_trading_reference_rates_per_page
         except Exception as e:
-            print(e)
             return {'message': "元素未能及時加載，跳過此頁"}
 
     options = webdriver.ChromeOptions()
@@ -43,7 +42,7 @@ def get_etf_trading_reference_rates():
     options.add_argument("--disable-gpu")
     options.add_argument("--no-sandbox")
     driver = webdriver.Remote(
-        command_executor="http://localhost:4444/wd/hub",
+        command_executor="http://selenium:4444/wd/hub",
         options=options
     )
 
