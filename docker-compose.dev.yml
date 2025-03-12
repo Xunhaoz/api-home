@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  fastapi:
+    container_name: fastapi
+    build:
+      dockerfile: docker/Dockerfile.dev
+    ports:
+      - "9025:9025"
+    volumes:
+      - ./api:/app
+    networks:
+      - selenium_grid
+    depends_on:
+      - selenium
+    stdin_open: true
+    tty: true
+
+  selenium:
+    container_name: selenium
+    shm_size: 2g
+    image: selenium/standalone-chrome:latest
+    environment:
+      - SE_NODE_MAX_SESSIONS=20
+    ports:
+      - "4444:4444"
+      - "5900:5900"
+      - "7900:7900"
+    networks:
+      - selenium_grid
+
+
+networks:
+  selenium_grid:
+    driver: bridge
